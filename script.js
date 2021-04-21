@@ -1,10 +1,15 @@
+//* Adding node js prompt module
+"use strict";
+const ps = require("prompt-sync");
+const prompt = ps();
+
 /*
-  ===<>===<>===<>===<>===<>===<>===
-  ===<>===Encryption Engine===<>===
-  ===<>===<>===<>===<>===<>===<>===
+  !===<>===<>===<>===<>===<>===<>===!
+  !===<>===Encryption Engine===<>===!
+  !===<>===<>===<>===<>===<>===<>===!
 */
 
-// Declare All variables
+//? Declare All variables
 var userInput,
   letter,
   number,
@@ -13,13 +18,13 @@ var userInput,
   passEncrypt,
   letterCheck;
 
-// Assigning All variables value
-userInput = prompt().toLowerCase();
+//? Assigning All variables value
+userInput = prompt("Type any message to Encrypt number : ").toLowerCase();
 letter = " abcdefghijklmnopqrstuvwxyz";
 number = "000102030405060708091011121314151617181920212223242526";
 passEncrypt = "";
 
-// Encryption loop starts here
+//? Encryption loop starts here
 for (var x = 0; x < userInput.length; x++) {
   letterCheck = userInput.charAt(x);
   sliceParam1 = 0;
@@ -35,25 +40,26 @@ for (var x = 0; x < userInput.length; x++) {
   }
 }
 
-document.write("<div>" + passEncrypt + "</div>");
+console.log("Encrypted Code : " + passEncrypt);
 
 /*
-  ===<>===<>===<>===<>===<>===<>===
-  ===<>===Decryption Engine===<>===
-  ===<>===<>===<>===<>===<>===<>===
+  !===<>===<>===<>===<>===<>===<>===!
+  !===<>===Decryption Engine===<>===!
+  !===<>===<>===<>===<>===<>===<>===!
 */
 
-// Declare All variables
+//? Declare All variables
 var passDecrypt, numberSlicePrm1, numberSlicePrm2;
 
-// Assigning All variables value
+//? Assigning All variables value
 passDecrypt = "";
 sliceParam1 = 0;
 sliceParam2 = 2;
-//-> letter = " abcdefghijklmnopqrstuvwxyz";
-//-> number = "000102030405060708091011121314151617181920212223242526";
 
-// Decryption loop starts here
+//todo: letter = " abcdefghijklmnopqrstuvwxyz";
+//todo: number = "000102030405060708091011121314151617181920212223242526";
+
+//? Decryption loop starts here
 for (var x = 0; x < passEncrypt.length; x += 2) {
   letterCheck = passEncrypt.slice(sliceParam1, sliceParam2);
   numberSlicePrm1 = 0;
@@ -70,4 +76,4 @@ for (var x = 0; x < passEncrypt.length; x += 2) {
   sliceParam2 += 2;
 }
 
-document.write("<div>" + passDecrypt + "</div>");
+console.log("Decrypted Code : " + passDecrypt);
